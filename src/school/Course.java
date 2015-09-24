@@ -14,6 +14,8 @@ public class Course {
     private Type type;
     private int period;
     
+    private Person theStudent;
+    
     
  public static Course addCourse(String _name,Type type,int period)
     {
@@ -21,13 +23,11 @@ public class Course {
         courses.add(temp);
         return(temp);
     }
-  
     Course()
     {
         name = "no name";
         type = Type.Math;
     }
-    
     Course(String _name,Type _type, int _period)
     {
         name=_name;
@@ -35,6 +35,14 @@ public class Course {
         period=_period;
     }    
     
+    public void addStudent(Student _student)
+    {
+        if(theStudent==null)
+        {
+            theStudent = _student;
+            _student.addCourse(this);
+        }
+    }
     
     public void setName(String _name)
     {
@@ -44,7 +52,6 @@ public class Course {
     {
         return(name);
     }
-    
     public void setType(Type _type)
     {
         type = _type;
@@ -53,7 +60,6 @@ public class Course {
     {
         return(type);
     }
-    
     public void setPeriod(int _period)
     {
         period = _period;
@@ -62,16 +68,14 @@ public class Course {
     {
         return(period);
     }
-    
-        public static void printNames()
+    public static void printNames()
     {
-        System.out.println("===printNames===");
+        System.out.println("\n===printNamesCourses===");
         for(Course temp : courses)
         {
                 System.out.println(temp.getName());
         }
     }
-    
     public String toString()
     {
         return(name +" "+type+" "+period);

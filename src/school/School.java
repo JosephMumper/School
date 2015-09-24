@@ -15,23 +15,34 @@ public class School {
      */
     public static void main(String[] args) {
         
+        Person joe = Person.addPerson("Joe",Person.Gender.Male,113);
         
-        Person joe = Person.addPerson("Joe",Person.Gender.Male,113,68);
-        Person jill = Person.addPerson("Jill",Person.Gender.Female,126,62);
-        Person billyJoe = Person.addPerson("BillyJoe",Person.Gender.Male,152,72);
+        Student jill = Student.addStudent("Jill",Person.Gender.Female,126,11);
+        Student billyJoe = Student.addStudent("BillyJoe",Person.Gender.Male,152,11);
         
-        int val =billyJoe.getWeight();
+        Student bobby = Student.addStudent("Bobby",Person.Gender.Male,152,11);
+        Student Mark = Student.addStudent("Mark",Person.Gender.Male,130,11);
+        Student Alan = Student.addStudent("Alan",Person.Gender.Female,214,3);
         
         Person.printNames();
-        Person.printNamesOfGender(Person.Gender.Female);
-        System.out.println(billyJoe);
+//        Person.printNamesOfGender(Person.Gender.Female);
         
+        joe.setBirthdate(8, 10, 1998);
+        billyJoe.setBirthdate(12, 6, 1999);
+        
+        System.out.println(joe);
         
         Course geom = Course.addCourse("Geometry", Course.Type.Math, 1);
         Course photo = Course.addCourse("Photography", Course.Type.Elective, 3);
         
         Course.printNames();
-        System.out.println(photo);
+
+        geom.addStudent(bobby);
         
+//        Student bobby = new Student("Bobby",Person.Gender.Male,168,11);
+        System.out.println(bobby.getName());
+        Person.printNames();
+        Student.printNames();
+        System.out.println(Alan);
     }
 }
