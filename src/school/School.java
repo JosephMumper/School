@@ -1,48 +1,41 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package school;
-
-/**
- *
- * @author 263004698
- */
 public class School {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+        Student joe =  Student.addStudent("Joe",Person.Gender.Male,120,10);
+        Student jill =  Student.addStudent("Jill",Person.Gender.Female,105,9);
+        Student billyJoe =  Student.addStudent("BillyJoe",Person.Gender.Male,210,12);
+        Student bobby =  Student.addStudent("Bobby",Person.Gender.Male,168,11);        
+        Student ann =  Student.addStudent("Annie",Person.Gender.Female,98,9);        
+        Student sean =  Student.addStudent("Sean",Person.Gender.Male,138,11);        
+                
+        Teacher donald = Teacher.addTeacher("Donald Duck", Person.Gender.Male, 206,4.7);
+        Teacher arnold = Teacher.addTeacher("Arnold", Person.Gender.Female, 106,7.2);
+        Teacher anderson = Teacher.addTeacher("Anderson", Person.Gender.Female, 112,3.2);
+        Teacher smith = Teacher.addTeacher("Smith", Person.Gender.Male, 152,8.2);
+        Teacher jones = Teacher.addTeacher("Jones", Person.Gender.Female, 102,1.2);
         
-        Person joe = Person.addPerson("Joe",Person.Gender.Male,113);
-        
-        Student jill = Student.addStudent("Jill",Person.Gender.Female,126,11);
-        Student billyJoe = Student.addStudent("BillyJoe",Person.Gender.Male,152,11);
-        
-        Student bobby = Student.addStudent("Bobby",Person.Gender.Male,152,11);
-        Student Mark = Student.addStudent("Mark",Person.Gender.Male,130,11);
-        Student Alan = Student.addStudent("Alan",Person.Gender.Female,214,3);
-        
-        Person.printNames();
-//        Person.printNamesOfGender(Person.Gender.Female);
-        
-        joe.setBirthdate(8, 10, 1998);
-        billyJoe.setBirthdate(12, 6, 1999);
-        
-        System.out.println(joe);
-        
-        Course geom = Course.addCourse("Geometry", Course.Type.Math, 1);
-        Course photo = Course.addCourse("Photography", Course.Type.Elective, 3);
-        
-        Course.printNames();
+        Course geom =  Course.addCourse("Geometry", Course.Type.Math, 1);
+        Course music =  Course.addCourse("Photography", Course.Type.Elective, 3);       
+        Course biology =  Course.addCourse("Biology", Course.Type.Science, 2);       
+        Course worldHistory =  Course.addCourse("WorldHistory", Course.Type.History, 2);       
 
         geom.addStudent(bobby);
+        music.addStudent(jill);
+        biology.addStudent(ann);
+        worldHistory.addStudent(sean);
+         
+        geom.addTeacher(donald);
+        music.addTeacher(anderson);
+        biology.addTeacher(smith);
+        worldHistory.addTeacher(arnold);
         
-//        Student bobby = new Student("Bobby",Person.Gender.Male,168,11);
-        System.out.println(bobby.getName());
+        
+        Course.printNames();
         Person.printNames();
         Student.printNames();
-        System.out.println(Alan);
+        Teacher.printNames();
+        
+        arnold.printStudentsNames();
+        ann.printTeachersNames();
     }
 }
